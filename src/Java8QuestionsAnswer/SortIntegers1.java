@@ -24,11 +24,17 @@ public class SortIntegers1 {
 		integerList.add(05);
 		integerList.add(5);
 		integerList.add(47);
+		// Sorting the list in ascending order using a lambda expression
+		Collections.sort(integerList,(a,b)->a.compareTo(b));
+		integerList.forEach(System.out::println);
+		// Sorting the list in descending  order using a lambda expression
 		Collections.sort(integerList,(a,b)->b.compareTo(a));
+		integerList.forEach(System.out::println);
+		/*
 		for (Integer numInteger : integerList) {
 			System.out.println(numInteger);
-			
 		}
+		*/
 	}
 
 }
