@@ -39,5 +39,6 @@ public class StreamWith2 {
 		System.out.println("According to customize order:"+l4);
 		
 		
+		
 	}
 }
