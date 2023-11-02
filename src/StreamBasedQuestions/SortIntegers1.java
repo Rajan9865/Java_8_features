@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Java8QuestionsAnswer;
+package StreamBasedQuestions;
 
 import java.util.ArrayList;
 import java.util.Collections;
