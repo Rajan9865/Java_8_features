@@ -30,7 +30,6 @@ public class MyFunctionalInterface implements FunctionalInterfaceTesting{
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
 		
 	}
 
