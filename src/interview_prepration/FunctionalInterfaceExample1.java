@@ -1,4 +1,4 @@
-package Functional_interface_examples;
+package interview_prepration;
 
 @FunctionalInterface  
 interface AddInterface1{  
