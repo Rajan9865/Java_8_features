@@ -12,7 +12,7 @@ interface A {
 }
 
 // Because interface b have 2 method so this is not functional  interface 
-@FunctionalInterface
+//@FunctionalInterface
 interface B extends A {
 	public void name2();
 }
