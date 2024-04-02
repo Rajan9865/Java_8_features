@@ -19,4 +19,7 @@ interface B extends A {
 
 public class FuncionalInterfaceExample {
 
+	
+	
+	
 }
