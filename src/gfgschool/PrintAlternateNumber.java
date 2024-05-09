@@ -12,17 +12,18 @@ import java.util.Scanner;
  */
 public class PrintAlternateNumber {
 	public static void main(String[] args) {
-		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter the size of array:");
-		int num=scanner.nextInt();
-		int arr[]=new int[num];
-		System.out.println("Enter the element of the array:");
-		for(int i=0;i<num;i++)
-		{
-			arr[i]=scanner.nextInt();
+		try (Scanner scanner = new Scanner(System.in)) {
+			System.out.println("Enter the size of array:");
+			int num=scanner.nextInt();
+			int arr[]=new int[num];
+			System.out.println("Enter the element of the array:");
+			for(int i=0;i<num;i++)
+			{
+				arr[i]=scanner.nextInt();
+			}
+			System.out.println("printint alternate number::");
+			PrintAlternateNumber.print(arr,num);
 		}
-		System.out.println("printint alternate number::");
-		PrintAlternateNumber.print(arr,num);
 	}
 
 	/**
