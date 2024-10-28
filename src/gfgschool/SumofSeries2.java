@@ -4,6 +4,7 @@
 package gfgschool;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 /**
  * gfgschool
