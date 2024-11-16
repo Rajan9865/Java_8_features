@@ -28,6 +28,12 @@ public class Main10 {
 public static void main(String[] args) {
 //	Shape shape=new Circle();
 	Shape shape=new Shape() {
+
+		@Override
+		void draw() {
+			// TODO Auto-generated method stub
+			
+		}
 		
 //		@Override
 //		void draw() {
