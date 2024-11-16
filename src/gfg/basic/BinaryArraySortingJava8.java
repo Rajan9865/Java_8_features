@@ -17,6 +17,7 @@ public class BinaryArraySortingJava8 {
 		binSort(arr);
 		System.out.println("sorted arrays");
 		printArray(arr);
+		
 	}
 
 	/**
