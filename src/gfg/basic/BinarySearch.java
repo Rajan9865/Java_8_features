@@ -5,7 +5,7 @@ package gfg.basic;
 
 /**
  * gfgBasic
- *DelL
+ *@author Rajan kumar
  */
 public class BinarySearch {
 	public static void main(String[] args) {
