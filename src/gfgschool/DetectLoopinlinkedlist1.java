@@ -32,12 +32,12 @@ public class DetectLoopinlinkedlist1 {
 		e.next=a;
 		System.out.println("detech loop in linked list is "+detectLoop(a));
 	}
-	private static boolean detectLoop(Node head) {
-		if (head==null) {
+	private static boolean detectLoop(Node a) {
+		if (a==null) {
 			return false;
 		}
-		Node slow=head;
-		Node fast=head;
+		Node slow=a;
+		Node fast=a;
 		while (fast!=null&&fast.next!=null) {
 			slow=slow.next;
 			fast=fast.next.next;
