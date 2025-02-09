@@ -19,7 +19,7 @@ public class LinkedListImpl {
 	}
 
 	public static class LinkedList {
-		Node head = null;
+		Node a = null;
 		Node tail = null;
 		int size = 0;
 
@@ -28,8 +28,8 @@ public class LinkedListImpl {
 		 */
 		void insertAtEnd(int val) {
 			Node temp = new Node(val);
-			if (head == null) {
-				head = temp;
+			if (a == null) {
+				a = temp;
 			} else {
 				tail.next = temp;
 			}
@@ -41,7 +41,7 @@ public class LinkedListImpl {
 		 * 
 		 */
 		public void display() {
-			Node temp = head;
+			Node temp = a;
 			while (temp != null) {
 				System.out.print(temp.data + " ");
 				temp = temp.next;
@@ -53,21 +53,21 @@ public class LinkedListImpl {
 		 * @return
 		 */
 		/*
-		 * int size() { Node temp = head; int count = 0; while (temp != null) { count++;
+		 * int size() { Node temp = a; int count = 0; while (temp != null) { count++;
 		 * temp = temp.next; } return count; }
 		 */
 
 		/**
 		 * @param i
 		 */
-		public void insertAtHead(int val) {
+		public void insertAta(int val) {
 			Node temp = new Node(val);
-			if (head == null) {
-//				head=tail=temp;
+			if (a == null) {
+//				a=tail=temp;
 				insertAtEnd(val);
 			} else {
-				temp.next = head;
-				head = temp;
+				temp.next = a;
+				a = temp;
 			}
 			size++;
 		}
@@ -78,12 +78,12 @@ public class LinkedListImpl {
 		 */
 		public void insertAtIndex(int idx, int val) {
 			Node t = new Node(val);
-			Node temp = head;
+			Node temp = a;
 			if (idx == size) {
 				insertAtEnd(val);
 				return;
 			} else if (idx == 0) {
-				insertAtHead(val);
+				insertAta(val);
 				return;
 			} else if (idx < 0 || idx > size) {
 				System.out.println("you entered wrong indes " + idx);
@@ -102,7 +102,7 @@ public class LinkedListImpl {
 		 * @return
 		 */
 		public int getAt(int idx) {
-			Node temp = head;
+			Node temp = a;
 			if (idx < 0 || idx > size) {
 				System.out.println("you entered wrong indes " + idx);
 				return -1;
@@ -118,14 +118,14 @@ public class LinkedListImpl {
 		 */
 		public void DeleteAt(int idx) {
 			if (idx == 0) {
-				head = head.next;
+				a = a.next;
 				size--;
 				return;
 			} else if (idx < 0 || idx > size) {
 				System.out.println("you entered wrong indes " + idx);
 				return;
 			}
-			Node temp = head;
+			Node temp = a;
 			for (int i = 1; i <= idx - 1; i++) {
 				temp = temp.next;
 			}
@@ -141,7 +141,7 @@ public class LinkedListImpl {
 		ll.insertAtEnd(10);
 		ll.insertAtEnd(15);
 		ll.insertAtEnd(20);
-		ll.insertAtHead(25);
+		ll.insertAta(25);
 		ll.insertAtIndex(5, 100);
 		ll.DeleteAt(12);
 		ll.display();
