@@ -15,7 +15,7 @@ public class SecondLargest {
 		int[] test3 = { 5 };
 		int[] test4 = { 20, 20, 10 };
 		int[] test5 = { 3, 2, 1 };
-		int result= getSecondLargest(test1);
+		int result = getSecondLargest(test1);
 		System.out.println(result);
 	}
 
@@ -24,21 +24,19 @@ public class SecondLargest {
 	 * @return
 	 */
 	private static int getSecondLargest(int[] test1) {
-		if (test1==null||test1.length<2) {
+		if (test1 == null || test1.length < 2) {
 			return -1;
 		}
-		int largest=Integer.MIN_VALUE;
-		int secondLargest=Integer.MIN_VALUE;
+		int largest = Integer.MIN_VALUE;
+		int secondLargest = Integer.MIN_VALUE;
 		for (int num : test1) {
-			if (num>largest) {
-				secondLargest=largest;
-				largest=num;
-			}
-			else if (num>secondLargest&&num!=largest) {
-				secondLargest=num;
+			if (num > largest) {
+				secondLargest = largest;
+				largest = num;
+			} else if (num > secondLargest && num != largest) {
+				secondLargest = num;
 			}
 		}
 		return secondLargest == Integer.MIN_VALUE ? -1 : secondLargest;
 	}
-
 }
