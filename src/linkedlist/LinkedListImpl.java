@@ -9,6 +9,7 @@ package linkedlist;
  * @author Rajan kumar
  */
 public class LinkedListImpl {
+
 	public static class Node {
 		int data;
 		Node next;
@@ -19,29 +20,31 @@ public class LinkedListImpl {
 	}
 
 	public static class LinkedList {
-		Node a = null;
+		Node head = null; // Changed 'a' to 'head' for clarity
 		Node tail = null;
 		int size = 0;
 
 		/**
-		 * @param i
+		 * Insert a value at the end of the list.
+		 * 
+		 * @param val the value to insert
 		 */
 		void insertAtEnd(int val) {
-			Node temp = new Node(val);
-			if (a == null) {
-				a = temp;
+			Node newNode = new Node(val);
+			if (head == null) {
+				head = newNode;
 			} else {
-				tail.next = temp;
+				tail.next = newNode;
 			}
-			tail = temp;
+			tail = newNode;
 			size++;
 		}
 
 		/**
-		 * 
+		 * Display the linked list.
 		 */
 		public void display() {
-			Node temp = a;
+			Node temp = head;
 			while (temp != null) {
 				System.out.print(temp.data + " ");
 				temp = temp.next;
@@ -50,87 +53,100 @@ public class LinkedListImpl {
 		}
 
 		/**
-		 * @return
+		 * Insert a value at the beginning of the list.
+		 * 
+		 * @param val the value to insert
 		 */
-		/*
-		 * int size() { Node temp = a; int count = 0; while (temp != null) { count++;
-		 * temp = temp.next; } return count; }
-		 */
-
-		/**
-		 * @param i
-		 */
-		public void insertAta(int val) {
-			Node temp = new Node(val);
-			if (a == null) {
-//				a=tail=temp;
+		public void insertAtBeginning(int val) { 
+			Node newNode = new Node(val);
+			if (head == null) {
 				insertAtEnd(val);
 			} else {
-				temp.next = a;
-				a = temp;
+				newNode.next = head;
+				head = newNode;
 			}
 			size++;
 		}
 
 		/**
-		 * @param i
-		 * @param j
+		 * Insert a value at the specified index.
+		 * 
+		 * @param index the index at which to insert
+		 * @param val   the value to insert
 		 */
-		public void insertAtIndex(int idx, int val) {
-			Node t = new Node(val);
-			Node temp = a;
-			if (idx == size) {
+		public void insertAtIndex(int index, int val) {
+			if (index < 0 || index > size) { // Improved validation
+				System.out.println("Invalid index: " + index);
+				return;
+			}
+
+			Node newNode = new Node(val);
+			if (index == size) {
 				insertAtEnd(val);
 				return;
-			} else if (idx == 0) {
-				insertAta(val);
-				return;
-			} else if (idx < 0 || idx > size) {
-				System.out.println("you entered wrong indes " + idx);
+			} else if (index == 0) {
+				insertAtBeginning(val);
 				return;
 			}
-			for (int i = 1; i <= idx - 1; i++) {
+
+			Node temp = head;
+			for (int i = 1; i < index; i++) {
 				temp = temp.next;
 			}
-			t.next = temp.next;
-			temp.next = t;
+
+			newNode.next = temp.next;
+			temp.next = newNode;
 			size++;
 		}
 
 		/**
-		 * @param i
-		 * @return
+		 * Get the value at a specified index.
+		 * 
+		 * @param index the index to retrieve the value from
+		 * @return the value at the index, or -1 if the index is invalid
 		 */
-		public int getAt(int idx) {
-			Node temp = a;
-			if (idx < 0 || idx > size) {
-				System.out.println("you entered wrong indes " + idx);
+		public int getAt(int index) {
+			if (index < 0 || index >= size) { 
+				System.out.println("Invalid index: " + index);
 				return -1;
 			}
-			for (int i = 1; i <= idx; i++) {
+
+			Node temp = head;
+			for (int i = 0; i < index; i++) {
 				temp = temp.next;
 			}
 			return temp.data;
 		}
 
 		/**
-		 * @param i
+		 * Delete the node at a specified index.
+		 * 
+		 * @param index the index at which to delete the node
 		 */
-		public void DeleteAt(int idx) {
-			if (idx == 0) {
-				a = a.next;
+		public void deleteAt(int index) {
+			if (index < 0 || index >= size) { // Corrected to check valid index
+				System.out.println("Invalid index: " + index);
+				return;
+			}
+
+			if (index == 0) {
+				head = head.next;
+				if (head == null) {
+					tail = null; // Fix for edge case when list becomes empty
+				}
 				size--;
 				return;
-			} else if (idx < 0 || idx > size) {
-				System.out.println("you entered wrong indes " + idx);
-				return;
 			}
-			Node temp = a;
-			for (int i = 1; i <= idx - 1; i++) {
+
+			Node temp = head;
+			for (int i = 1; i < index; i++) {
 				temp = temp.next;
 			}
+
+			if (temp.next == tail) {
+				tail = temp; // Update tail if we're deleting the last element
+			}
 			temp.next = temp.next.next;
-			tail = temp;
 			size--;
 		}
 	}
@@ -141,13 +157,11 @@ public class LinkedListImpl {
 		ll.insertAtEnd(10);
 		ll.insertAtEnd(15);
 		ll.insertAtEnd(20);
-		ll.insertAta(25);
+		ll.insertAtBeginning(25); 
 		ll.insertAtIndex(5, 100);
-		ll.DeleteAt(12);
+		ll.deleteAt(12); 
 		ll.display();
-		System.out.println("size of linkedlist: " + ll.size);
-		System.out.println("get index of linkedList :" + ll.getAt(3));
-
+		System.out.println("Size of linked list: " + ll.size);
+		System.out.println("Get value at index 3: " + ll.getAt(3));
 	}
-
 }
