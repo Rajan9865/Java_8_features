@@ -27,40 +27,30 @@ public class FirstNegativeInWindow1 {
         Deque<Long> deq = new LinkedList<>();
         List<Long> result = new ArrayList<>();
 
-        // Step 1: Process the first K elements
         for (long i = 0; i < K; i++) {
             if (A[(int)i] < 0) {
                 deq.offerLast(i);
             }
         }
 
-        // Step 2: Process the rest of the elements
         for (long i = K; i < N; i++) {
-            // Add the first negative integer in the current window or 0 if none
             if (!deq.isEmpty()) {
                 result.add(A[(int)(long)deq.peekFirst()]);
             } else {
                 result.add(0L);
             }
-
-            // Remove elements from the front of the deque which are outside the current window
             while (!deq.isEmpty() && deq.peekFirst() <= i - K) {
                 deq.pollFirst();
             }
-
-            // Add the current element if it's negative
             if (A[(int)i] < 0) {
                 deq.offerLast(i);
             }
         }
-
-        // Add the first negative integer of the last window or 0 if none
         if (!deq.isEmpty()) {
             result.add(A[(int)(long)deq.peekFirst()]);
         } else {
             result.add(0L);
         }
-
         return result;
     }
 }
